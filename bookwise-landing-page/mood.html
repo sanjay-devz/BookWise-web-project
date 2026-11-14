@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Your Mood | BookWise</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="mood.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="mood-page">
+
+        <h1 class="mood-heading">WHAT'S YOUR MOOD !</h1>
+
+        <a href="index.html" class="back-arrow" aria-label="Go back">
+    <svg viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19L5 12L12 5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+</a>
+
+        <div class="mood-container">
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Relaxed">
+                <span class="mood-emoji">☁️</span>
+                <span>Relaxed</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Curious">
+                <span class="mood-emoji">🔍</span>
+                <span>Curious</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Romantic">
+                <span class="mood-emoji">❤️</span>
+                <span>Romantic</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Adventurous">
+                <span class="mood-emoji">🌍</span>
+                <span>Adventurous</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Emotional">
+                <span class="mood-emoji">🌧️</span>
+                <span>Emotional</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Happy">
+                <span class="mood-emoji">☀️</span>
+                <span>Happy</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Thoughtful">
+                <span class="mood-emoji">💭</span>
+                <span>Thoughtful</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Motivated">
+                <span class="mood-emoji">🚀</span>
+                <span>Motivated</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Thrilled">
+                <span class="mood-emoji">⚡</span>
+                <span>Thrilled</span>
+            </button>
+
+            <button class="mood-tile" type="button" aria-pressed="false" data-mood="Inspired">
+                <span class="mood-emoji">✨</span>
+                <span>Inspired</span>
+            </button>
+
+        </div>
+
+        <button class="find-button" type="button" id="findButton">
+            FIND
+        </button>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+
+        const moodTiles = document.querySelectorAll(".mood-tile");
+        const findButton = document.getElementById("findButton");
+
+        let selectedMoods = [];
+
+        // Select or deselect moods
+        moodTiles.forEach(function(tile) {
+
+            tile.addEventListener("click", function() {
+
+                const mood = tile.dataset.mood;
+
+                tile.classList.toggle("selected");
+
+                const isSelected = tile.classList.contains("selected");
+
+                tile.setAttribute("aria-pressed", isSelected);
+
+                if (isSelected) {
+
+                    selectedMoods.push(mood);
+
+                } else {
+
+                    selectedMoods = selectedMoods.filter(function(item) {
+                        return item !== mood;
+                    });
+
+                }
+
+            });
+
+        });
+
+        // Find button
+        findButton.addEventListener("click", function() {
+
+            if (selectedMoods.length === 0) {
+
+                alert("Please select at least one mood!");
+
+            } else {
+
+                alert("Your selected moods: " + selectedMoods.join(", "));
+
+                // You can connect the book recommendation page here.
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
