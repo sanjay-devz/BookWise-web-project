@@ -12,7 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="transition.css" >
   <link rel="icon" type="image/png" href="assests/favicon.png">
+  
   
 </head>
 <body>
@@ -52,7 +54,7 @@
           you feel, and find stories that match your mood, spark your
           imagination, and inspire your next adventure.
         </p>
-        <a class="discover-button" href="mood.html">Discover</a>
+        <a class="discover-button" href="mood.html" onclick="sessionStorage.setItem('pageTransition', 'mood')">Discover</a>
       </div>
 
       <div class="book-gallery" id="discover" aria-label="Featured books">

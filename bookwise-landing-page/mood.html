@@ -14,10 +14,18 @@
 
 
     <link rel="stylesheet" href="mood.css">
+    <link rel="stylesheet" href="transition.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+    if (sessionStorage.getItem('pageTransition') === 'mood') {
+        document.documentElement.classList.add('mood-transition');
+        sessionStorage.removeItem('pageTransition');
+    }
+</script>
+    
 </head>
 
 <body>
@@ -91,7 +99,7 @@
         </div>
 
         <button class="find-button" type="button" id="findButton">
-            FIND
+           <span> NEXT </span>
         </button>
 
     </main>

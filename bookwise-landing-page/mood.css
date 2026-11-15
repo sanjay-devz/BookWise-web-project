@@ -146,8 +146,13 @@ body {
 /* BUTTON HOVER */
 
 .find-button:hover {
-    background-color: #E9782D;
+    background-color: #FDEECD;
+    border: 1px solid #4A463D;
     transform: translateY(-2px);
+}
+
+.find-button:hover span {
+     color: #4B526899;
 }
 
 .back-arrow {
